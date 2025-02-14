@@ -1,7 +1,7 @@
 import { EnergyGrid } from "./EnergyGrid";
-import { useSortingAndFiltering } from "../../hooks/useSortingAndFiltering";
+import { useSortingAndFiltering } from "@/hooks/useSortingAndFiltering";
 import { type Energy } from "@/lib/parseData";
-import { Input } from "../ui/Input";
+import { Input } from "@/components/ui/Input";
 
 export const Energies = ({ energyList }: { energyList: Energy[] }) => {
   const {

@@ -1,7 +1,7 @@
 import { PokemonGrid } from "./PokemonGrid";
-import { useSortingAndFiltering } from "../../hooks/useSortingAndFiltering";
+import { useSortingAndFiltering } from "@/hooks/useSortingAndFiltering";
 import { type Pokemon } from "@/lib/parseData";
-import { Input } from "../ui/Input";
+import { Input } from "@/components/ui/Input";
 
 export const Pokemons = ({ pokemonList }: { pokemonList: Pokemon[] }) => {
   const {

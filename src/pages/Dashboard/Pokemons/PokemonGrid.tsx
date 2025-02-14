@@ -1,8 +1,8 @@
 import React from "react";
 
-import { HeaderCell } from "../ui/HeaderCell";
-import { PokemonTypeBadge, type PokemonType } from "./PokemonTypeBadge";
+import { HeaderCell } from "@/components/ui/HeaderCell";
 import { type Pokemon } from "@/lib/parseData";
+import { PokemonTypeBadge, type PokemonType } from "./PokemonTypeBadge";
 
 interface PokemonGridProps {
   isSortedAscending: boolean;

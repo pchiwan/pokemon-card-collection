@@ -1,7 +1,7 @@
 import { TrainerGrid } from "./TrainerGrid";
-import { useSortingAndFiltering } from "../../hooks/useSortingAndFiltering";
+import { useSortingAndFiltering } from "@/hooks/useSortingAndFiltering";
 import { type Trainer } from "@/lib/parseData";
-import { Input } from "../ui/Input";
+import { Input } from "@/components/ui/Input";
 
 export const Trainers = ({ trainerList }: { trainerList: Trainer[] }) => {
   const {

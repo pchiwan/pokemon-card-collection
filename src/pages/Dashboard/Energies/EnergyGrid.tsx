@@ -1,21 +1,21 @@
 import React from "react";
 
-import { HeaderCell } from "../ui/HeaderCell";
-import { type Trainer } from "@/lib/parseData";
+import { HeaderCell } from "@/components/ui/HeaderCell";
+import { type Energy } from "@/lib/parseData";
 
-interface TrainerGridProps {
+interface EnergyGridProps {
   isSortedAscending: boolean;
-  trainers: Trainer[];
-  onSort: (key: keyof Trainer) => void;
-  sortingKey: keyof Trainer;
+  energies: Energy[];
+  onSort: (key: keyof Energy) => void;
+  sortingKey: keyof Energy;
 }
 
-export const TrainerGrid = ({
+export const EnergyGrid = ({
   isSortedAscending,
   onSort,
-  trainers,
+  energies,
   sortingKey,
-}: TrainerGridProps) => {
+}: EnergyGridProps) => {
   return (
     <div className="grid grid-cols-4 gap-2 py-1 px-2 w-full">
       <hr className="col-span-4" />
@@ -50,7 +50,7 @@ export const TrainerGrid = ({
         </HeaderCell>
       </div>
       <hr className="col-span-4" />
-      {trainers.map((energy) => (
+      {energies.map((energy) => (
         <React.Fragment key={energy.id}>
           <div className="px-4">{energy.id}</div>
           <div className="px-4">{energy.name}</div>
