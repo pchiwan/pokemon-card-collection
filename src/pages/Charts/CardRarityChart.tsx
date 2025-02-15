@@ -25,6 +25,10 @@ const option1: EChartsOption = {
   legend: {
     orient: "vertical",
     left: "left",
+    textStyle: {
+      fontFamily: "Ubuntu",
+      fontSize: 14,
+    },
   },
   series: [
     {
@@ -33,6 +37,10 @@ const option1: EChartsOption = {
       radius: "50%",
       itemStyle: {
         borderRadius: 5,
+      },
+      label: {
+        fontFamily: "Ubuntu",
+        fontSize: 14,
       },
       data: Object.keys(entriesGroupedByRarity).map((key) => ({
         value: entriesGroupedByRarity[key].length,
@@ -62,6 +70,10 @@ const option2: EChartsOption = {
   legend: {
     orient: "vertical",
     left: "left",
+    textStyle: {
+      fontFamily: "Ubuntu",
+      fontSize: 14,
+    },
   },
   series: [
     {
@@ -70,6 +82,10 @@ const option2: EChartsOption = {
       radius: "50%",
       itemStyle: {
         borderRadius: 5,
+      },
+      label: {
+        fontFamily: "Ubuntu",
+        fontSize: 14,
       },
       data: Object.keys(categorisedRareCards).map((key) => ({
         value: categorisedRareCards[key].length,
