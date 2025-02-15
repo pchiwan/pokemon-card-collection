@@ -1,15 +1,15 @@
 import ashCollectionJson from "../../ash_collection.json";
 
-type CollectionEntry = (typeof ashCollectionJson)[0];
+export type CollectionEntry = (typeof ashCollectionJson)[0];
 
-const uniqueEntries = ashCollectionJson.reduce<CollectionEntry[]>(
+export const uniqueEntries = ashCollectionJson.reduce<CollectionEntry[]>(
   (acc, entry) => {
     return !acc.find(({ id }) => id === entry.id) ? [...acc, entry] : acc;
   },
   []
 );
 
-const categorisedEntries = uniqueEntries.reduce<{
+export const categorisedEntries = uniqueEntries.reduce<{
   [key: string]: CollectionEntry[];
 }>((acc, entry) => {
   return {

@@ -8,6 +8,7 @@ import {
 
 import { AppLayout } from "./AppLayout";
 import { Dashboard } from "./pages/Dashboard/Dashboard";
+import { Charts } from "./pages/Charts/Charts";
 
 const Router = () => {
   const router = createBrowserRouter(
@@ -15,7 +16,7 @@ const Router = () => {
       <>
         <Route path="/" element={<AppLayout />}>
           <Route index element={<Dashboard />} />
-          <Route path="charts" element={<h2>Charts</h2>} />
+          <Route path="charts" element={<Charts />} />
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
       </>
