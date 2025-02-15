@@ -6,7 +6,7 @@ const badgeVariant = cva(undefined, {
     type: {
       water: "bg-blue-500",
       lightning: "bg-teal-400",
-      colorless: "bg-white text-black border-zinc-700",
+      colorless: "bg-zinc-300 text-black",
       grass: "bg-green-700",
       fire: "bg-red-600",
       psychic: "bg-orange-300 text-black",

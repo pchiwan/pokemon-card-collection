@@ -34,17 +34,8 @@ export const PokemonGrid = ({
   sortingKey,
 }: PokemonGridProps) => {
   return (
-    <div className="grid grid-cols-7 gap-2 py-1 px-2 w-full">
-      <hr className="col-span-7" />
-      <div>
-        <HeaderCell
-          isSorting={sortingKey === "id"}
-          isSortedAscending={isSortedAscending}
-          onClick={() => onSort("id")}
-        >
-          ID
-        </HeaderCell>
-      </div>
+    <div className="grid grid-cols-8 gap-2 py-1 px-2 w-full">
+      <hr className="col-span-8" />
       <div>
         <HeaderCell
           isSorting={sortingKey === "name"}
@@ -68,6 +59,24 @@ export const PokemonGrid = ({
       </div>
       <div>
         <HeaderCell
+          isSorting={sortingKey === "weaknesses"}
+          isSortedAscending={isSortedAscending}
+          onClick={() => onSort("weaknesses")}
+        >
+          Weaknesses
+        </HeaderCell>
+      </div>
+      <div>
+        <HeaderCell
+          isSorting={sortingKey === "resistances"}
+          isSortedAscending={isSortedAscending}
+          onClick={() => onSort("resistances")}
+        >
+          Resistances
+        </HeaderCell>
+      </div>
+      <div>
+        <HeaderCell
           isSorting={sortingKey === "types"}
           isSortedAscending={isSortedAscending}
           onClick={() => onSort("types")}
@@ -87,10 +96,9 @@ export const PokemonGrid = ({
           Rarity
         </HeaderCell>
       </div>
-      <hr className="col-span-7" />
+      <hr className="col-span-8" />
       {pokemons.map((pokemon) => (
         <React.Fragment key={pokemon.id}>
-          <div className="px-4">{pokemon.id}</div>
           <div className="px-4">{pokemon.name}</div>
           <div className="px-4">
             <img
@@ -101,13 +109,27 @@ export const PokemonGrid = ({
           </div>
           <div className="px-4">{pokemon.hp}</div>
           <div className="px-4">
-            <PokemonTypeBadges types={pokemon.types ?? []} />
+            {pokemon.weaknesses?.map((weakness, index) => (
+              <p key={index}>
+                {weakness.type} {weakness.value}
+              </p>
+            ))}
           </div>
           <div className="px-4">
+            {pokemon.resistances?.map((resistance, index) => (
+              <p key={index}>
+                {resistance.type} {resistance.value}
+              </p>
+            ))}
+          </div>
+          <div className="px-4">
+            <PokemonTypeBadges types={pokemon.types ?? []} />
+          </div>
+          <div className="px-4 break-words">
             {`${pokemon.evolvesTo ?? "-"} / ${pokemon.evolvesFrom ?? "-"}`}
           </div>
           <div className="px-4">{pokemon.rarity}</div>
-          <hr className="col-span-7" />
+          <hr className="col-span-8" />
         </React.Fragment>
       ))}
     </div>
