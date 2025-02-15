@@ -1,5 +1,6 @@
 import Fuse, { FuseOptionKey } from "fuse.js";
 import React, { useEffect, useMemo, useState } from "react";
+import { useDebouncedValue } from "./useDebouncedValue";
 
 const sortingMethod = <T>(entries: T[], key: keyof T, asc: boolean) => {
   return [...entries].sort((a, b) => {
@@ -36,6 +37,8 @@ export const useSortingAndFiltering = <T>({
   const [sortingKey, setSortingKey] = useState<keyof T>(initialSortingKey);
   const [isSortedAscending, setIsSortedAscending] = useState(true);
 
+  const debouncedSearchQuery = useDebouncedValue(searchQuery, 400);
+
   const handleSort = (key: keyof T) => {
     if (sortingKey === key) {
       setIsSortedAscending(!isSortedAscending);
@@ -52,21 +55,21 @@ export const useSortingAndFiltering = <T>({
   };
 
   useEffect(() => {
-    if (searchQuery.length === 0) {
+    if (debouncedSearchQuery.length === 0) {
       setFilteredValues(entries);
     }
 
-    if (searchQuery.length >= 3) {
+    if (debouncedSearchQuery.length >= 3) {
       const fuse = new Fuse(entries, {
         ...fuseOptions,
         keys: searchKeys,
       });
       const searchResultEntries = fuse
-        .search(searchQuery)
+        .search(debouncedSearchQuery)
         .map((result) => result.item);
       setFilteredValues(searchResultEntries);
     }
-  }, [searchQuery]);
+  }, [debouncedSearchQuery]);
 
   const sortedValues = useMemo(
     () => sortingMethod(filteredValues, sortingKey, isSortedAscending),
