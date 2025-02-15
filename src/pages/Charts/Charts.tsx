@@ -3,6 +3,7 @@ import { useState } from "react";
 import { CardRarityChart } from "./CardRarityChart";
 import { PokemonTypeVsHPChart } from "./PokemonTypeVsHPChart";
 import { CardTypeDistributionChart } from "./CardTypeDistributionChart";
+import { PokemonSetsByTypeChart } from "./PokemonSetsByTypeChart";
 
 export const Charts = () => {
   const [selectedTab, setSelectedTab] = useState("card-type-dist");
@@ -14,7 +15,7 @@ export const Charts = () => {
       defaultValue={selectedTab}
       onValueChange={setSelectedTab}
     >
-      <Tabs.List className="grid grid-cols-3 w-full">
+      <Tabs.List className="grid grid-cols-4 w-full">
         <Tabs.Trigger value="card-type-dist">
           Card Type Distribution
         </Tabs.Trigger>
@@ -22,10 +23,14 @@ export const Charts = () => {
         <Tabs.Trigger value="pokemon-type-hp">
           Pokémon Type VS Average HP
         </Tabs.Trigger>
+        <Tabs.Trigger value="pokemon-sets-by-type">
+          Pokémon Sets By Type
+        </Tabs.Trigger>
       </Tabs.List>
       {selectedTab === "card-type-dist" && <CardTypeDistributionChart />}
       {selectedTab === "card-rarity" && <CardRarityChart />}
       {selectedTab === "pokemon-type-hp" && <PokemonTypeVsHPChart />}
+      {selectedTab === "pokemon-sets-by-type" && <PokemonSetsByTypeChart />}
     </Tabs>
   );
 };
