@@ -1,4 +1,3 @@
-import { cn } from "@/lib/utils";
 import type { ECharts, EChartsOption, SetOptionOpts } from "echarts";
 import { getInstanceByDom, init } from "echarts";
 import { useEffect, useRef } from "react";
